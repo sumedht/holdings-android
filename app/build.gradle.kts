@@ -57,7 +57,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.3.0")
     implementation("androidx.compose.material:material-icons-extended:1.7.2")
     testImplementation("junit:junit:4.12")
-    //implementation("androidx.room:room-compiler-processing-testing:2.8.4")
+
 
     debugImplementation("androidx.compose.ui:ui-tooling:1.7.2")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.2")
