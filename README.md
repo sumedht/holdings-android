@@ -9,10 +9,10 @@ The focus of this implementation is **code quality, scalability, testability, an
 ## Features
 - Display list of stock holdings
 - Portfolio summary with **expand / collapse animation**
-- Pull-to-refresh to fetch the latest data
-- Offline support using local caching
-- Graceful error handling
-- Smooth animations using Jetpack Compose
+- Pull-to-refresh to fetch the latest data (to refresh local db with network data)
+- Offline support using local DB
+- Error handling
+- Expand/Collapse view Animations using Jetpack Compose
 - Portrait-only orientation (intentional scope decision)
 
 ## Screenshots & Demo
@@ -33,12 +33,46 @@ The focus of this implementation is **code quality, scalability, testability, an
 The app follows **MVVM inspired by Clean Architecture**, ensuring clear separation of concerns and testable business logic.
 
 ```
-UI (Compose)
- └── ViewModel
-      └── UseCases
-           └── Repository
-                ├── Remote (API)
-                └── Local (Room DB)
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/com/sumedh/demo/
+│   │   │   │── common/
+│   │   │   ├── di/
+│   │   │   ├── data/
+│   │   │   │   ├── local/
+│   │   │   │   │   ├── dao/
+│   │   │   │   │   ├── entity/
+│   │   │   │   │   └── AppDatabase.kt
+│   │   │   │   ├── remote/
+│   │   │   │   │   ├── api/
+│   │   │   │   │   └── dto/
+│   │   │   │   └── repository/
+│   │   │   │   └── network/
+│   │   │   ├── domain/
+│   │   │   │   ├── model/
+│   │   │   │   ├── repository/
+│   │   │   │   └── usecase/
+│   │   │   │   └── error/
+│   │   │   ├── ui/
+│   │   │   │   ├── components/
+│   │   │   │   ├── state/
+│   │   │   │   │── viewModel/
+│   │   │   │   └── theme/
+│   │   │   ├── MainActivity.kt
+│   │   │   └── SumedhDemoApplication.kt
+│   │   │
+│   │   └── res/
+│   │       └── AndroidManifest.xml
+│   ├── test/
+│   │   └── java/com/sumedh/demo/
+│   │       ├── domain/
+│   │       └── viewmodel/
+│   │
+│   ├── androidTest/
+│   │   └── java/com/sumedh/demo/
+│   │       └── ui/
+
 ```
 
 ## Tech Stack
@@ -53,15 +87,15 @@ UI (Compose)
 - **Min SDK**: 23
 
 ## Offline Support
-- Holdings data is cached locally using Room
+- Holdings data is cached locally using Room DB
 - Cached data is shown when the device is offline
 - Network errors are handled gracefully
-- App remains usable without internet connectivity
+- Room DB data is a single source of truth to show data
 
 ## UI & UX
 - UI built entirely using Jetpack Compose
 - LazyColumn used for efficient list rendering
-- Smooth expand/collapse animations
+- Added expand/collapse animation
 - Material 3 theming for consistent appearance
 - Orientation locked to portrait mode
 
@@ -93,7 +127,7 @@ UI (Compose)
 This approach ensures predictable UI behaviour and keeps the UI layer
 stateless and easy to test.
 
-## ⚡ Performance Notes
+## Performance Notes
 Performance characteristics were observed during development using Android Studio profilers.
 - Cold start time: ~600–700 ms (Debug build)
 - No continuous memory growth during repeated scrolling
