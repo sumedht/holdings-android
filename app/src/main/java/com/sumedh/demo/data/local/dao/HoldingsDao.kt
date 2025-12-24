@@ -1,4 +1,4 @@
-package com.sumedh.demo.data.local
+package com.sumedh.demo.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -12,6 +12,6 @@ interface HoldingsDao {
     @Query("SELECT * FROM holdings")
     fun observeHoldings(): Flow<List<HoldingEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertAll(items: List<HoldingEntity>)
 }

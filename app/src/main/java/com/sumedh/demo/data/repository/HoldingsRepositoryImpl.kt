@@ -3,7 +3,7 @@ package com.sumedh.demo.data.repository
 import android.util.Log
 import com.google.gson.JsonSyntaxException
 import com.sumedh.demo.common.Resource
-import com.sumedh.demo.data.local.HoldingsDao
+import com.sumedh.demo.data.local.dao.HoldingsDao
 import com.sumedh.demo.data.local.entity.toHolding
 import com.sumedh.demo.data.remote.HoldingsApi
 import com.sumedh.demo.data.remote.dto.toEntity

@@ -3,7 +3,7 @@ package com.sumedh.demo.di
 import android.content.Context
 import androidx.room.Room
 import com.sumedh.demo.data.local.AppDatabase
-import com.sumedh.demo.data.local.HoldingsDao
+import com.sumedh.demo.data.local.dao.HoldingsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

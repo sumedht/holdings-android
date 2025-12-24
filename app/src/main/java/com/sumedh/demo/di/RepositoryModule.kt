@@ -1,6 +1,6 @@
 package com.sumedh.demo.di
 
-import com.sumedh.demo.data.local.HoldingsDao
+import com.sumedh.demo.data.local.dao.HoldingsDao
 import com.sumedh.demo.data.remote.HoldingsApi
 import com.sumedh.demo.data.repository.HoldingsRepositoryImpl
 import com.sumedh.demo.domain.repository.HoldingsRepository

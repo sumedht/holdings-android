@@ -2,6 +2,7 @@ package com.sumedh.demo.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.sumedh.demo.data.local.dao.HoldingsDao
 import com.sumedh.demo.data.local.entity.HoldingEntity
 
 @Database(
