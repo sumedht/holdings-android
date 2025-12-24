@@ -71,10 +71,10 @@ fun PortfolioSummaryCard(
                         .testTag("summary_expanded")
                         .padding(bottom = 16.dp)
                 ) {
-                    SummaryRow("Current Value", summary.currentValue)
-                    SummaryRow("Total Investment", summary.totalInvestment)
+                    SummaryRow("Current Value*", summary.currentValue)
+                    SummaryRow("Total Investment*", summary.totalInvestment)
                     SummaryRow(
-                        "Today's P&L",
+                        "Today's Profit & Loss*",
                         summary.todaysPnl,
                         highlight = true
                     )
@@ -87,7 +87,7 @@ fun PortfolioSummaryCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Profit & Loss",
+                    text = "Profit & Loss*",
                     style = MaterialTheme.typography.titleMedium
                 )
 
