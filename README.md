@@ -28,6 +28,12 @@ The focus of this implementation is **code quality, scalability, testability, an
 ### Pull to Refresh
 ![Pull to Refresh](screenshots/pull_to_refresh.png)
 
+### No internet
+![Pull to Refresh](screenshots/no_internet.png)
+
+### No data
+![Pull to Refresh](screenshots/no_data.png)
+
 
 ## 🏗 Architecture
 The app follows **MVVM inspired by Clean Architecture**, ensuring clear separation of concerns and testable business logic.
